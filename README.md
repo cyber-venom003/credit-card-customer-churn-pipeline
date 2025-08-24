@@ -96,23 +96,3 @@ airflow scheduler
 3. **Feature Engineering** (`src/transformation.py`): Creating predictive features
 4. **Model Building** (`src/model_building.py`): Training machine learning models
 5. **Utilities** (`src/utils.py`): Helper functions and common utilities
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Support
-
-For questions and support, please open an issue in the GitHub repository.
-
-## 🔄 Version History
-
-- **v1.0.0**: Initial project setup and basic pipeline structure
