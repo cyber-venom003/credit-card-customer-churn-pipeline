@@ -1,0 +1,30 @@
+id
+age
+tenure_months
+total_transactions
+total_spend
+avg_transaction_amount
+std_transaction_amount
+total_transaction_fees
+total_logins
+avg_session_duration
+total_pages_viewed
+total_support_tickets
+avg_satisfaction_score
+tenure_days
+days_since_last_transaction
+transactions_per_day
+gender_M
+gender_Other
+income_bracket_Low
+income_bracket_Medium
+income_bracket_Premium
+education_level_High School
+education_level_Master
+education_level_Other
+education_level_PhD
+subscription_plan_Enterprise
+subscription_plan_Premium
+subscription_plan_Standard
+customer_segment_Individual
+customer_segment_Small Business

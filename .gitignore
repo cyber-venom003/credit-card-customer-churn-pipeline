@@ -131,6 +131,7 @@ data/features/*
 !data/features/.gitkeep
 
 # Model files
+mlruns/
 models/*.pkl
 models/*.joblib
 models/*.h5

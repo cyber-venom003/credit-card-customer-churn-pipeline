@@ -1,0 +1,4 @@
+Data Type,File Path,Total Records,Total Columns,Null Records,Duplicate Records,Memory Usage (MB),Validation Status,Critical Issues
+demographics,data/raw/customer_demographics/2025-08-24/customer_demographics.csv,50000,17,87500,0,37.78,FAIL,High percentage of null values
+transactions,data/raw/transactions/2025-08-24/transactions.csv,1971565,14,0,0,1101.72,PASS,
+behavior,data/raw/customer_behavior/2025-08-24/customer_behavior.json,1,6,0,0,0.0,PASS,

@@ -14,6 +14,19 @@ from typing import Optional
 # Configure logging
 logger = logging.getLogger(__name__)
 
+def get_project_root() -> Path:
+    """
+    Get the project root directory.
+    
+    Returns:
+        Path: Path to the project root directory
+    """
+    # Get the current file's directory (src/)
+    current_dir = Path(__file__).parent
+    # Go up one level to get the project root
+    project_root = current_dir.parent
+    return project_root
+
 def get_features() -> pd.DataFrame:
     """
     Connect to the SQLite database and retrieve the entire customer features table.
@@ -28,7 +41,8 @@ def get_features() -> pd.DataFrame:
     """
     try:
         # Define the path to the features database
-        features_db_path = Path("data/features/features.db")
+        project_root = get_project_root()
+        features_db_path = project_root / "data/features/features.db"
         
         # Check if the database file exists
         if not features_db_path.exists():
@@ -79,7 +93,8 @@ def get_features_with_filter(customer_ids: Optional[list] = None,
     """
     try:
         # Define the path to the features database
-        features_db_path = Path("data/features/features.db")
+        project_root = get_project_root()
+        features_db_path = project_root / "data/features/features.db"
         
         # Check if the database file exists
         if not features_db_path.exists():

@@ -14,13 +14,17 @@ import pandas as pd
 from datetime import datetime
 from pathlib import Path
 import glob
+from utils import get_project_root
+
+# Get project root for absolute paths
+project_root = get_project_root()
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/validation.log'),
+        logging.FileHandler(project_root / 'logs/validation.log'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -31,8 +35,8 @@ class DataValidator:
     
     def __init__(self):
         """Initialize the DataValidator class."""
-        self.base_path = Path("data/raw")
-        self.docs_path = Path("docs")
+        self.base_path = project_root / "data/raw"
+        self.docs_path = project_root / "docs"
         self.validation_results = {}
         
         # Create docs directory if it doesn't exist

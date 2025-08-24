@@ -37,15 +37,17 @@ from sklearn.metrics import (
 from sklearn.preprocessing import StandardScaler
 
 # Import utility function
-sys.path.append(str(Path(__file__).parent))
-from utils import get_features
+from utils import get_features, get_project_root
+
+# Get project root for absolute paths
+project_root = get_project_root()
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/model_building.log'),
+        logging.FileHandler(project_root / 'logs/model_building.log'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -68,10 +70,10 @@ class ChurnModelBuilder:
         self.experiment_name = "customer_churn_prediction"
         
         # Set MLflow tracking URI (local filesystem)
-        mlflow.set_tracking_uri("file:./mlruns")
+        mlflow.set_tracking_uri(f"file:{project_root}/mlruns")
         
         # Create logs directory if it doesn't exist
-        Path("logs").mkdir(exist_ok=True)
+        (project_root / "logs").mkdir(exist_ok=True)
     
     def load_features(self):
         """Load features using the get_features() utility function."""
@@ -222,18 +224,18 @@ class ChurnModelBuilder:
                     columns=['Predicted No Churn', 'Predicted Churn']
                 )
                 
-                cm_path = "logs/confusion_matrix.csv"
+                cm_path = project_root / "logs" / "confusion_matrix.csv"
                 cm_df.to_csv(cm_path, index=True)
-                mlflow.log_artifact(cm_path)
+                mlflow.log_artifact(str(cm_path))
                 logger.info("✅ Confusion matrix logged as artifact")
                 
                 # Log classification report as artifact
                 report = classification_report(self.y_test, y_pred, output_dict=True)
                 report_df = pd.DataFrame(report).transpose()
                 
-                report_path = "logs/classification_report.csv"
+                report_path = project_root / "logs" / "classification_report.csv"
                 report_df.to_csv(report_path, index=True)
-                mlflow.log_artifact(report_path)
+                mlflow.log_artifact(str(report_path))
                 logger.info("✅ Classification report logged as artifact")
                 
                 # Cross-validation score
@@ -267,7 +269,7 @@ class ChurnModelBuilder:
         
         try:
             # Create models directory if it doesn't exist
-            models_dir = Path("models")
+            models_dir = project_root / "models"
             models_dir.mkdir(exist_ok=True)
             
             # Save model using joblib

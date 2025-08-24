@@ -14,19 +14,26 @@ import sys
 import json
 import logging
 import requests
+from urllib import parse
 import pandas as pd
 from datetime import datetime
 from sqlalchemy import create_engine, text
 from pathlib import Path
+from dotenv import load_dotenv, find_dotenv
 import psycopg2
 from psycopg2 import OperationalError
+from utils import get_project_root
 
-# Configure logging
+load_dotenv(find_dotenv())
+
+# Get project root for absolute paths
+project_root = get_project_root()
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/ingestion.log'),
+        logging.FileHandler(project_root / 'logs/ingestion.log'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -38,7 +45,7 @@ class DataIngestion:
     def __init__(self, config):
         """Initialize the DataIngestion class with configuration."""
         self.config = config
-        self.base_path = Path("data/raw")
+        self.base_path = project_root / "data/raw"
         self.today = datetime.now().strftime("%Y-%m-%d")
         
         # Create directories if they don't exist
@@ -169,7 +176,7 @@ def main():
         'db_password': os.getenv('DB_PASSWORD', 'password'),
         'api_url': os.getenv('API_URL', 'https://api.example.com/customer_behavior'),
         'api_headers': {
-            'Authorization': os.getenv('API_TOKEN', 'your_token_here'),
+            'Authorization': os.getenv('API_TOKEN', ''),
             'Content-Type': 'application/json'
         }
     }
