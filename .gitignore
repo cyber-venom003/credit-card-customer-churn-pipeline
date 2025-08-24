@@ -129,6 +129,10 @@ data/features/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/features/.gitkeep
+# Allow DVC tracking files
+!data/raw/**/*.dvc
+!data/processed/**/*.dvc
+!data/features/**/*.dvc
 
 # Model files
 mlruns/
@@ -141,7 +145,7 @@ models/*.pth
 logs/*.log
 
 # DVC
-.dvc/
+# .dvc/  # Commented out to allow DVC configuration tracking
 
 # Airflow
 airflow.cfg

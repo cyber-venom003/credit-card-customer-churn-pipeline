@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  transform_features:
+    cmd: python3 src/6_transformation.py
+    deps:
+    - path: data/raw/customer_behavior/2025-08-24/customer_behavior.json
+      hash: md5
+      md5: 338611ecb1cb10e03b686734cd826728
+      size: 16195049
+    - path: data/raw/customer_demographics/2025-08-24/customer_demographics.csv
+      hash: md5
+      md5: cbbe9da3f2ba99fa446ad7cea2870c9a
+      size: 6892039
+    - path: data/raw/transactions/2025-08-24/transactions.csv
+      hash: md5
+      md5: 882ddca916594641a98f9e4da6d6493f
+      size: 305387949
+    - path: src/6_transformation.py
+      hash: md5
+      md5: 55ec4f02fd883d3d9f701ea67fac7502
+      size: 7606
+    outs:
+    - path: data/features/features.db
+      hash: md5
+      md5: f4208924cea81605fcf819769481ac7d
+      size: 7344128
+    - path: data/processed/final_features.csv
+      hash: md5
+      md5: 5eddfaeadc1f8d9e308a7c37aaa92807
+      size: 13019253

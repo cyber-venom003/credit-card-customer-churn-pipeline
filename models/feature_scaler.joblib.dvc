@@ -1,0 +1,5 @@
+outs:
+- md5: 416b75b77606e96742b33773dae15ff6
+  size: 2487
+  hash: md5
+  path: feature_scaler.joblib
