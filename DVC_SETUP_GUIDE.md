@@ -33,12 +33,12 @@ A DVC pipeline has been created in `dvc.yaml` that automates the feature enginee
 ```yaml
 stages:
   transform_features:
-    cmd: python3 src/6_transformation.py
+    cmd: python3 src/transformation.py
     deps:
     - data/raw/customer_behavior/2025-08-24/customer_behavior.json
     - data/raw/customer_demographics/2025-08-24/customer_demographics.csv
     - data/raw/transactions/2025-08-24/transactions.csv
-    - src/6_transformation.py
+    - src/transformation.py
     outs:
     - data/features/features.db
     - data/processed/final_features.csv

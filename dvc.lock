@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   transform_features:
-    cmd: python3 src/6_transformation.py
+    cmd: python3 src/transformation.py
     deps:
     - path: data/raw/customer_behavior/2025-08-24/customer_behavior.json
       hash: md5
@@ -15,7 +15,7 @@ stages:
       hash: md5
       md5: 882ddca916594641a98f9e4da6d6493f
       size: 305387949
-    - path: src/6_transformation.py
+    - path: src/transformation.py
       hash: md5
       md5: 55ec4f02fd883d3d9f701ea67fac7502
       size: 7606

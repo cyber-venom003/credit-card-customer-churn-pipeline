@@ -80,23 +80,22 @@ airflow scheduler
 
 ### Data Processing
 
-- Raw data ingestion: `python src/data_ingestion.py`
-- Data preprocessing: `python src/data_preprocessing.py`
-- Feature engineering: `python src/feature_engineering.py`
+- Raw data ingestion: `python src/ingestion.py`
+- Data validation: `python src/validation.py`
+- Feature engineering: `python src/transformation.py`
 
 ### Model Training
 
-- Train model: `python src/model_training.py`
-- Evaluate model: `python src/model_evaluation.py`
+- Train model: `python src/model_building.py`
+- Utilities: `python src/utils.py`
 
 ## 📈 Pipeline Components
 
-1. **Data Ingestion**: Automated data collection from multiple sources
-2. **Data Preprocessing**: Cleaning, validation, and transformation
-3. **Feature Engineering**: Creating predictive features
-4. **Model Training**: Training machine learning models
-5. **Model Evaluation**: Performance assessment and validation
-6. **Model Deployment**: Production deployment and monitoring
+1. **Data Ingestion** (`src/ingestion.py`): Automated data collection from multiple sources
+2. **Data Validation** (`src/validation.py`): Data quality checks and validation reports
+3. **Feature Engineering** (`src/transformation.py`): Creating predictive features
+4. **Model Building** (`src/model_building.py`): Training machine learning models
+5. **Utilities** (`src/utils.py`): Helper functions and common utilities
 
 ## 🤝 Contributing
 

@@ -51,28 +51,28 @@ start = DummyOperator(
 # Data Ingestion Task
 ingestion = BashOperator(
     task_id='ingestion',
-    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/2_ingestion.py',
+    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/ingestion.py',
     dag=dag
 )
 
 # Data Validation Task
 validation = BashOperator(
     task_id='validation',
-    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/4_validation.py',
+    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/validation.py',
     dag=dag
 )
 
 # Feature Engineering/Transformation Task
 transformation = BashOperator(
     task_id='transformation',
-    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/6_transformation.py',
+    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/transformation.py',
     dag=dag
 )
 
 # Model Training Task
 model_training = BashOperator(
     task_id='model_training',
-    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/9_model_building.py',
+    bash_command='cd /Users/priyansh/Desktop/DMML_Assignment/credit-card-customer-churn-pipeline && python src/model_building.py',
     dag=dag
 )
 
